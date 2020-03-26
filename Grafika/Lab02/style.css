@@ -1,0 +1,19 @@
+body{
+    background-image: url(dolphin.jpg);
+
+}
+
+#lorem{
+    background-color: #6ba2f3;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    padding: 3px;
+    border: 1px solid rgb(84, 115, 216);
+    border-radius: 4px;
+    margin-top: 20px;
+    text-align: center;
+}
+#lorem:hover{
+    background-color: #5a92e2
+}
