@@ -140,7 +140,7 @@ function mulMatrix(inA, inB)
     inA[0] * inB[0], inA[1] * inB[1], inA[2] * inA[2], 0.0,
     inA[4] * inB[4], inA[5] * inB[5], inA[6] * inA[6], 0.0,
     inA[8] * inB[8], inA[9] * inB[9], inA[10] * inA[10], 0.0,
-    0.0, 0.0, -5, 1.0
+    -0.5, -1.5, -10, 1.0
   ];
   return out;
 }
@@ -168,7 +168,7 @@ function Tick()
         Math.cos(angle*Math.PI/180.0),-Math.sin(angle*Math.PI/180.0), 0,0, 
         Math.sin(angle*Math.PI/180.0), Math.cos(angle*Math.PI/180.0), 0,0,
         0,0,1,0,
-        0,0,-10,1 //Położenie kamery
+        0,0,-5,1 //Położenie kamery
         ];
     
       let uMVMatrix = mulMatrix(uMVMatrix_X, uMVMatrix_Z);
