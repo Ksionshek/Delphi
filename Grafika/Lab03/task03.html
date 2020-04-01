@@ -147,13 +147,13 @@ function mulMatrix(inA, inB)
 function Tick()
 { 
    
-     angle=angle - i;
+     angle=angle + i;
    
          
         let uMVMatrix_X = [
         1,0, 0,0,
         0,Math.cos(angle*Math.PI/180.0),-Math.sin(angle*Math.PI/180.0),0,
-        0,Math.sin(angle*Math.PI/180.0), Math.cos(angle*Math.PI/180.0),0.0,
+        0,Math.sin(angle*Math.PI/180.0), Math.cos(angle*Math.PI/180.0),0,
         0,0,-5,1 //Położenie kamery
         ];
 
