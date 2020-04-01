@@ -12,9 +12,9 @@ function startGL()
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
-  return (Math.random() * (max - min + 1)) + min;
+  return Math.floor((Math.random() * (max - min + 1)) + min);
 }
- i =  getRandomIntInclusive(1.0, 5.0);
+ i =  getRandomIntInclusive(0.01, 2.0);
  r =  getRandomIntInclusive(0.0,2.0);
   alert("StartGL");
   let canvas = document.getElementById("canvas3D"); //wyszukanie obiektu w strukturze strony 
@@ -132,23 +132,46 @@ function getRandomIntInclusive(min, max) {
   ];
   Tick();
 } 
-let angle = 0.0; //Macierz transformacji świata - określenie położenia kamery 
+let angle = 100.0; //Macierz transformacji świata - określenie położenia kamery 
+function mulMatrix(inA, inB)
+{
+  let out = [
 
+    inA[0] * inB[0], inA[1] * inB[1], inA[2] * inA[2], 0.0,
+    inA[4] * inB[4], inA[5] * inB[5], inA[6] * inA[6], 0.0,
+    inA[8] * inB[8], inA[9] * inB[9], inA[10] * inA[10], 0.0,
+    0.0, 0.0, -5, 1.0
+  ];
+  return out;
+}
 function Tick()
 { 
    
      angle=angle - i;
    
          
-        let uMVMatrix = [
-        Math.cos(angle*Math.PI/180.0),0, -Math.sin(angle*Math.PI/180.0),0,
-        0,1,0,0,
-        Math.sin(angle*Math.PI/180.0),0, Math.cos(angle*Math.PI/180.0),0.0,
+        let uMVMatrix_X = [
+        1,0, 0,0,
+        0,Math.cos(angle*Math.PI/180.0),-Math.sin(angle*Math.PI/180.0),0,
+        0,Math.sin(angle*Math.PI/180.0), Math.cos(angle*Math.PI/180.0),0.0,
         0,0,-5,1 //Położenie kamery
         ];
 
+        let uMVMatrix_Y = [
+        Math.cos(angle*Math.PI/180.0),0, Math.sin(angle*Math.PI/180.0), 0, 
+        0,1, 0, 0,
+        -Math.sin(angle*Math.PI/180.0),0, Math.cos(angle*Math.PI/180.0), 0,
+        0,0,-5,1 //Położenie kamery
+        ];
+
+        let uMVMatrix_Z = [
+        Math.cos(angle*Math.PI/180.0),-Math.sin(angle*Math.PI/180.0), 0,0, 
+        Math.sin(angle*Math.PI/180.0), Math.cos(angle*Math.PI/180.0), 0,0,
+        0,0,1,0,
+        0,0,-10,1 //Położenie kamery
+        ];
     
-     
+      let uMVMatrix = mulMatrix(uMVMatrix_X, uMVMatrix_Z);
  
 
 
@@ -158,7 +181,7 @@ function Tick()
   
   //Render Scene
   gl.viewport(0, 0, gl.viewportWidth, gl.viewportHeight); 
-  gl.clearColor(1.0,0.0,0.0,1.0); //Wyczyszczenie obrazu kolorem czerwonym
+  gl.clearColor(0.3,0.1,0.8,1.0); //Wyczyszczenie obrazu kolorem czerwonym
   gl.clearDepth(1.0);             //Wyczyścienie bufora głebi najdalszym planem
   gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
   gl.useProgram(shaderProgram)   //Użycie przygotowanego programu shaderowego
