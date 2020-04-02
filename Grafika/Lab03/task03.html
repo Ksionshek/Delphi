@@ -132,14 +132,20 @@ function getRandomIntInclusive(min, max) {
   ];
   Tick();
 } 
-let angle = 100.0; //Macierz transformacji świata - określenie położenia kamery 
+let angle = 10.0; 
 function mulMatrix(inA, inB)
 {
   let out = [
 
-    inA[0] * inB[0], inA[1] * inB[1], inA[2] * inA[2], 0.0,
-    inA[4] * inB[4], inA[5] * inB[5], inA[6] * inA[6], 0.0,
-    inA[8] * inB[8], inA[9] * inB[9], inA[10] * inA[10], 0.0,
+    (inA[0] * inB[0]) + (inA[1]*inB[4]) + (inA[2]* inB[8]),
+    (inA[0] * inB[1]) + (inA[1]*inB[5]) + (inA[2]* inB[9]),
+    (inA[0] * inB[2]) + (inA[1]*inB[6]) + (inA[2]* inB[10]), 0,
+    (inA[4] * inB[0]) + (inA[5]*inB[4]) + (inA[6]* inB[8]),
+    (inA[4] * inB[1]) + (inA[5]*inB[5]) + (inA[6]* inB[9]),
+    (inA[4] * inB[2]) + (inA[5]*inB[6]) + (inA[6]* inB[10]), 0,
+    (inA[8] * inB[0]) + (inA[9]*inB[4]) + (inA[10]* inB[8]),
+    (inA[8] * inB[1]) + (inA[9]*inB[5]) + (inA[10]* inB[9]),
+    (inA[8] * inB[2]) + (inA[9]*inB[6]) + (inA[10]* inB[10]),0,
     -0.5, -1.5, -10, 1.0
   ];
   return out;
@@ -147,7 +153,7 @@ function mulMatrix(inA, inB)
 function Tick()
 { 
    
-     angle=angle + i;
+     angle=angle - i;
    
          
         let uMVMatrix_X = [
