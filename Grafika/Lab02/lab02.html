@@ -318,33 +318,7 @@
 
                  //e
 
-                 23.0, 0.0, 0.0 ,   24.0, 0.0, 0.0,   24.0, 1.0, 0.0,
-
-                 23.0, 0.0, 0.0 ,   24.0, 1.0, 0.0,   23.0, 1.0, 0.0,
-
-                 23.0, 1.0, 0.0 ,   24.0, 1.0, 0.0,   24.0, 2.0, 0.0,
-
-                 23.0, 1.0, 0.0 ,   24.0, 2.0, 0.0,   23.0, 2.0, 0.0,
-
-                 23.0, 2.0, 0.0 ,   24.0, 2.0, 0.0,   24.0, 3.0, 0.0,
-
-                 23.0, 2.0, 0.0 ,   24.0, 3.0, 0.0,   23.0, 3.0, 0.0,
-
-                 23.0, 3.0, 0.0 ,   24.0, 3.0, 0.0,   24.0, 4.0, 0.0,
-
-                 23.0, 3.0, 0.0 ,   24.0, 4.0, 0.0,   23.0, 4.0, 0.0,
-
-                 23.0, 4.0, 0.0 ,   24.0, 4.0, 0.0,   24.0, 5.0, 0.0,
-
-                 23.0, 4.0, 0.0 ,   24.0, 5.0, 0.0,   23.0, 5.0, 0.0,
-
-                 23.0, 5.0, 0.0 ,   24.0, 5.0, 0.0,   24.0, 6.0, 0.0,
-
-                 23.0, 5.0, 0.0 ,   24.0, 6.0, 0.0,   23.0, 6.0, 0.0,
-
-                 23.0, 6.0, 0.0 ,   24.0, 6.0, 0.0,   24.0, 7.0, 0.0,
-
-                 23.0, 6.0, 0.0 ,   24.0, 7.0, 0.0,   23.0, 7.0, 0.0,
+         
 
 
                 ]
@@ -354,7 +328,7 @@
                 gl.bindBuffer(gl.ARRAY_BUFFER, vertexPositionBuffer);
                 gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertexPosition), gl.STATIC_DRAW);
                 vertexPositionBuffer.itemSize = 3; //zdefiniowanie liczby współrzednych per wierzchołek
-                vertexPositionBuffer.numItems = 139; //Zdefinoiowanie liczby punktów w naszym buforze
+                vertexPositionBuffer.numItems = 125; //Zdefinoiowanie liczby punktów w naszym buforze
 
                  //Macierze opisujące położenie wirtualnej kamery w przestrzenie 3D
                 let aspect = gl.viewportWidth/gl.viewportHeight;
@@ -404,7 +378,7 @@
 </head>
 <body onload = "startGL()">
     
-<canvas id = "canvas3D" width = "1240" height="480" style = "border:solid black 1px" ></canvas>
+<canvas id = "canvas3D" width = "1240" height="480"  ></canvas>
 
 <div id="lorem">Przy wypisywaniu 'E' wystąpił błąd i poddałem się. Być moze to problem z buforem?  </div>
 
