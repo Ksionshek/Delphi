@@ -537,62 +537,62 @@ var angleXne = 0.0;
 
 
 //slonce
-var object1x = -80.0;
+var object1x = 0.0;
 var object1y = 0.0;
 var object1z = 0.0;
 //merkury
-var object2x = 20.0;
+var object2x = 120.0;
 var object2y = 0.0;
 var object2z = -0.0;
 //wenus
-var object3x = 28.0;
+var object3x = 128.0;
 var object3y = 0.0;
 var object3z = -0.0;
 //ziemia
-var object4x = 35.0;
+var object4x = 135.0;
 var object4y = 0.0;
 var object4z = 0.0;
 //moon
-var object5x = 40.0;
+var object5x = 140.0;
 var object5y = 1.0;
 var object5z = 0.0;
 //mars
-var object6x = 45.0;
+var object6x = 145.0;
 var object6y = 0.0;
 var object6z = 0.0;
 //jowisz
-var object7x = 75.0;
+var object7x = 175.0;
 var object7y = 0.0;
 var object7z = 0.0;
 //io
-var object8x = 100.0;
+var object8x = 200.0;
 var object8y = 1.0;
 var object8z = 0.0;
 
 //europa
-var object9x = 100.0;
+var object9x = 200.0;
 var object9y = 0.0;
 var object9z =4.0;
 
 //ganimedes
-var object10x = 100.0;
+var object10x = 200.0;
 var object10y = 0.0;
 var object10z = -5.0;
 //saturn
-var object11x = 130.0;
+var object11x = 230.0;
 var object11y = 0.0;
 var object11z = 0.0;
 
 //tytan
-var object12x = 150.0;
+var object12x = 250.0;
 var object12y = 0.0;
 var object12z = 0.0;
 //uran
-var object13x = 170.0;
+var object13x = 270.0;
 var object13y = 0.0;
 var object13z = 0.0;
 //neptun
-var object14x = 200.0;
+var object14x = 300.0;
 var object14y = 0.0;
 var object14z = 0.0;
 
@@ -633,7 +633,7 @@ var lightZ = 0;
 
 var tx= 0.0;
 var ty = 0.0;
-var tz = -700
+var tz = -1000
 
 function Tick()
 {  
@@ -769,9 +769,9 @@ function Tick()
   ];
   
   let uMVRotYm = [
-  +Math.cos(angleYm*Math.PI/180.0),0,+Math.sin(angleYm*Math.PI/180.0),0,
+  +Math.cos(angleYm*Math.PI/180.0),0,-Math.sin(angleYm*Math.PI/180.0),0,
   0,1,0,0,
-  -Math.sin(angleYm*Math.PI/180.0),0,+Math.cos(angleYm*Math.PI/180.0),0,
+  +Math.sin(angleYm*Math.PI/180.0),0,+Math.cos(angleYm*Math.PI/180.0),0,
   0,0,0,1
   ];
   
@@ -1309,6 +1309,7 @@ let uMVRotZne = [
   
   
   uMVMatrix1 = MatrixMul(uMVMatrix1,uMVScale1);
+  uMVObject1 = MatrixMul(uMVObject1,uMVRotYs);
   uMVMatrix1 = MatrixMul(uMVMatrix1,uMVObject1);
   uMVMatrix1 = MatrixMul(uMVMatrix1,uMVRotXs);
   uMVMatrix1 = MatrixMul(uMVMatrix1,uMVRotYs);
@@ -1318,6 +1319,7 @@ let uMVRotZne = [
   uMVMatrix1 = MatrixMul(uMVMatrix1,uMVTranslateY);
   
   uMVMatrix2 = MatrixMul(uMVMatrix2,uMVScale2);
+  uMVObject2 = MatrixMul(uMVObject2,uMVRotYm);
   uMVMatrix2 = MatrixMul(uMVMatrix2,uMVObject2);
   uMVMatrix2 = MatrixMul(uMVMatrix2,uMVRotXm);
   uMVMatrix2 = MatrixMul(uMVMatrix2,uMVRotYm);
@@ -1328,6 +1330,7 @@ let uMVRotZne = [
   
 
   uMVMatrix3 = MatrixMul(uMVMatrix3,uMVScale3);
+  uMVObject3 = MatrixMul(uMVObject3,uMVRotYw);
   uMVMatrix3 = MatrixMul(uMVMatrix3,uMVObject3);
   uMVMatrix3 = MatrixMul(uMVMatrix3,uMVRotXw);
   uMVMatrix3 = MatrixMul(uMVMatrix3,uMVRotYw);
@@ -1339,6 +1342,7 @@ let uMVRotZne = [
 
 
   uMVMatrix4 = MatrixMul(uMVMatrix4,uMVScale4);
+  uMVObject4 = MatrixMul(uMVObject4,uMVRotYz);
   uMVMatrix4 = MatrixMul(uMVMatrix4,uMVObject4);
   uMVMatrix4 = MatrixMul(uMVMatrix4,uMVRotXz);
   uMVMatrix4 = MatrixMul(uMVMatrix4,uMVRotYz);
@@ -1350,6 +1354,7 @@ let uMVRotZne = [
 
 
   uMVMatrix5 = MatrixMul(uMVMatrix5,uMVScale5);
+  uMVObject5 = MatrixMul(uMVObject5,uMVRotYks);
   uMVMatrix5 = MatrixMul(uMVMatrix5,uMVObject5);
   uMVMatrix5 = MatrixMul(uMVMatrix5,uMVRotXks);
   uMVMatrix5 = MatrixMul(uMVMatrix5,uMVRotYks);
@@ -1361,6 +1366,7 @@ let uMVRotZne = [
 
 
   uMVMatrix6 = MatrixMul(uMVMatrix6,uMVScale6);
+  uMVObject6 = MatrixMul(uMVObject6,uMVRotYma);
   uMVMatrix6 = MatrixMul(uMVMatrix6,uMVObject6);
   uMVMatrix6 = MatrixMul(uMVMatrix6,uMVRotXma);
   uMVMatrix6 = MatrixMul(uMVMatrix6,uMVRotYma);
@@ -1371,17 +1377,20 @@ let uMVRotZne = [
   
 
   uMVMatrix7 = MatrixMul(uMVMatrix7,uMVScale7);
+  uMVObject7 = MatrixMul(uMVObject7,uMVRotYjo);
   uMVMatrix7 = MatrixMul(uMVMatrix7,uMVObject7);
   uMVMatrix7 = MatrixMul(uMVMatrix7,uMVRotXjo);
   uMVMatrix7 = MatrixMul(uMVMatrix7,uMVRotYjo);
   uMVMatrix7 = MatrixMul(uMVMatrix7,uMVRotZjo);
+  uMVMatrix7 = MatrixMul(uMVMatrix7,uMVTranslateY);
   uMVMatrix7 = MatrixMul(uMVMatrix7,uMVTranslateX);
   uMVMatrix7 = MatrixMul(uMVMatrix7,uMVTranslateZ);
-  uMVMatrix7 = MatrixMul(uMVMatrix7,uMVTranslateY);
+ 
   
 
 
   uMVMatrix8 = MatrixMul(uMVMatrix8,uMVScale8);
+  uMVObject8 = MatrixMul(uMVObject8,uMVRotYio);
   uMVMatrix8 = MatrixMul(uMVMatrix8,uMVObject8);
   uMVMatrix8 = MatrixMul(uMVMatrix8,uMVRotXio);
   uMVMatrix8 = MatrixMul(uMVMatrix8,uMVRotYio);
@@ -1393,6 +1402,7 @@ let uMVRotZne = [
 
 
   uMVMatrix9 = MatrixMul(uMVMatrix9,uMVScale9);
+  uMVObject9 = MatrixMul(uMVObject9,uMVRotYeu);
   uMVMatrix9 = MatrixMul(uMVMatrix9,uMVObject9);
   uMVMatrix9 = MatrixMul(uMVMatrix9,uMVRotXeu);
   uMVMatrix9 = MatrixMul(uMVMatrix9,uMVRotYeu);
@@ -1404,6 +1414,7 @@ let uMVRotZne = [
 
 
   uMVMatrix10 = MatrixMul(uMVMatrix10,uMVScale10);
+  uMVObject10 = MatrixMul(uMVObject10,uMVRotYga);
   uMVMatrix10 = MatrixMul(uMVMatrix10,uMVObject10);
   uMVMatrix10 = MatrixMul(uMVMatrix10,uMVRotXga);
   uMVMatrix10 = MatrixMul(uMVMatrix10,uMVRotYga);
@@ -1414,6 +1425,7 @@ let uMVRotZne = [
   
   
   uMVMatrix11 = MatrixMul(uMVMatrix11,uMVScale11);
+  uMVObject11 = MatrixMul(uMVObject11,uMVRotYsa);
   uMVMatrix11 = MatrixMul(uMVMatrix11,uMVObject11);
   uMVMatrix11 = MatrixMul(uMVMatrix11,uMVRotXsa);
   uMVMatrix11 = MatrixMul(uMVMatrix11,uMVRotYsa);
@@ -1425,6 +1437,7 @@ let uMVRotZne = [
 
 
   uMVMatrix12 = MatrixMul(uMVMatrix12,uMVScale12);
+  uMVObject12 = MatrixMul(uMVObject12,uMVRotYty);
   uMVMatrix12 = MatrixMul(uMVMatrix12,uMVObject12);
   uMVMatrix12 = MatrixMul(uMVMatrix12,uMVRotXty);
   uMVMatrix12 = MatrixMul(uMVMatrix12,uMVRotYty);
@@ -1435,6 +1448,7 @@ let uMVRotZne = [
   
   
   uMVMatrix13 = MatrixMul(uMVMatrix13,uMVScale13);
+  uMVObject13 = MatrixMul(uMVObject13,uMVRotYur);
   uMVMatrix13 = MatrixMul(uMVMatrix13,uMVObject13);
   uMVMatrix13 = MatrixMul(uMVMatrix13,uMVRotXur);
   uMVMatrix13 = MatrixMul(uMVMatrix13,uMVRotYur);
@@ -1445,6 +1459,7 @@ let uMVRotZne = [
   
   
   uMVMatrix14 = MatrixMul(uMVMatrix14,uMVScale14);
+  uMVObject14 = MatrixMul(uMVObject14,uMVRotYne);
   uMVMatrix14 = MatrixMul(uMVMatrix14,uMVObject14);
   uMVMatrix14 = MatrixMul(uMVMatrix14,uMVRotXne);
   uMVMatrix14 = MatrixMul(uMVMatrix14,uMVRotYne);
@@ -1568,119 +1583,77 @@ gl.uniformMatrix4fv(gl.getUniformLocation(shaderProgram, "uMVMatrix"), false, ne
 }
 function handlekeydown(e)
 {
-  var speed = 20.0;
+  var speed = 9.0;
  // Q W E A S D
  if(e.keyCode==87) angleXs=angleXs+1.0; //W
  if(e.keyCode==83) angleXs=angleXs-1.0; //S
  if(e.keyCode==68)
  { 
+   //angleYs+=1.0;
    
+   angleYm+=10.0;
   
 
-   angleYm+=50.5;
-   angleXm+=50.5;
-
-   angleYw+=50.5;
-   angleXw+=50.5;
-
-   angleYz+=50.5;
-   angleXz+=50.5;
-
-
-   angleYks+=50.52;
-   angleXks+=50.52;
-
-
-   angleYma+=50.6;
-   angleXma+=50.6;
-
-
-   angleYjo+=50.0;
-   angleXjo+=50.0;
-
-
-   angleYio+=50.01;
-   angleXio+=50.01;
-
-
-   angleYeu+=50.01;
-   angleXeu+=50.01;
-
-
-   angleYga+=50.01;
-   angleXga+=50.01;
-
-
-   angleYsa+=50.2;
-   angleXsa+=50.2;
-
-
-   angleYty+=50.21;
-   angleXty+=50.21;
-
-
-   angleYur+=50.4;
-   angleXur+=50.4;
-
-
-   angleYne+=50.6;
-   angleXne+=50.6;
+   angleYw+=9.0;
+   
+   angleYz+=8.0;
+   
+   angleYks+=8.0;
+   
+   angleYma+=7.0;
+   
+   angleYjo+=6.0;
+   
+   angleYio+=6.0;
+  
+   angleYeu+=6.0;
+  
+   angleYga+=6.0;
+   
+   angleYsa+=5.0;
+   
+   angleYty+=5.0;
+   
+   angleYur+=4.0;
+   
+   angleYne+=3.7;
+   
    
  }
 
  if(e.keyCode==65){
+   //angleYs-=1.0;
+
+    
+   angleYm-=10.0;
   
 
-   angleYm-=10.5;
-   angleXm-=10.5;
-
-   angleYw-=10.5;
-   angleXw-=10.5;
-
-
-   angleYz-=10.5;
-   angleXz-=10.5;
-
-
-   angleYks-=10.52;
-   angleXks-=10.52;
-
-
-   angleYma-=10.6;
-   angleXma-=10.6;
-
-
-   angleYjo-=10.0;
-   angleXjo-=10.0;
-
-
-   angleYio-=10.01;
-   angleXio-=10.01;
-
-
-   angleYeu-=10.01;
-   angleXeu-=10.01;
-
-
-   angleYga-=10.01;
-   angleXga-=10.01;
-
-
-   angleYsa-=10.2;
-   angleXsa-=10.2;
-
-
-   angleYty-=10.21;
-   angleXty-=10.21;
-
-
-   angleYur-=10.4;
-   angleXur-=10.4;
-
-
-   angleYne-=10.6;
-   angleXne-=10.6;
+   angleYw-=9.0;
    
+   angleYz-=8.0;
+   
+   angleYks-=8.0;
+   
+   angleYma-=7.0;
+   
+   angleYjo-=6.0;
+   
+   angleYio-=6.0;
+  
+   angleYeu-=6.0;
+  
+   angleYga-=6.0;
+   
+   angleYsa-=5.0;
+   
+   angleYty-=5.0;
+   
+   angleYur-=4.0;
+   
+   angleYne-=3.7;
+   
+  
+ 
  }
  if(e.keyCode==81) angleZs=angleZs+1.0;
  if(e.keyCode==69) angleZs=angleZs-1.0;
