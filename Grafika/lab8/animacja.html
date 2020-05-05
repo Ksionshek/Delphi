@@ -1377,7 +1377,8 @@ let uMVRotZne = [
   
 
   uMVMatrix7 = MatrixMul(uMVMatrix7,uMVScale7);
-  uMVObject7 = MatrixMul(uMVObject7,uMVRotYjo);
+  uMVObject7 = MatrixMul(uMVObject7,uMVRotXjo);
+  uMVObject7 = MatrixMul(uMVObject7,uMVRotZjo);
   uMVMatrix7 = MatrixMul(uMVMatrix7,uMVObject7);
   uMVMatrix7 = MatrixMul(uMVMatrix7,uMVRotXjo);
   uMVMatrix7 = MatrixMul(uMVMatrix7,uMVRotYjo);
@@ -1385,6 +1386,7 @@ let uMVRotZne = [
   uMVMatrix7 = MatrixMul(uMVMatrix7,uMVTranslateY);
   uMVMatrix7 = MatrixMul(uMVMatrix7,uMVTranslateX);
   uMVMatrix7 = MatrixMul(uMVMatrix7,uMVTranslateZ);
+  
  
   
 
@@ -1579,7 +1581,7 @@ gl.uniformMatrix4fv(gl.getUniformLocation(shaderProgram, "uMVMatrix"), false, ne
   gl.bindTexture(gl.TEXTURE_2D, textureBuffer14);
   gl.drawArrays(gl.TRIANGLES, 0, vertexPositionBuffer.numItems*vertexPositionBuffer.itemSize); //Faktyczne wywołanie rendrowania
 
-  setTimeout(Tick,100);
+  setTimeout(Tick,50);
 }
 function handlekeydown(e)
 {
@@ -1590,10 +1592,9 @@ function handlekeydown(e)
  if(e.keyCode==68)
  { 
    //angleYs+=1.0;
-   
+   angleYs+=0.1;
    angleYm+=10.0;
   
-
    angleYw+=9.0;
    
    angleYz+=8.0;
@@ -1624,7 +1625,7 @@ function handlekeydown(e)
  if(e.keyCode==65){
    //angleYs-=1.0;
 
-    
+   angleYs-=0.1;
    angleYm-=10.0;
   
 
@@ -1637,6 +1638,7 @@ function handlekeydown(e)
    angleYma-=7.0;
    
    angleYjo-=6.0;
+   
    
    angleYio-=6.0;
   
@@ -1655,8 +1657,7 @@ function handlekeydown(e)
   
  
  }
- if(e.keyCode==81) angleZs=angleZs+1.0;
- if(e.keyCode==69) angleZs=angleZs-1.0;
+
 
 
 
@@ -1680,6 +1681,15 @@ function handlekeydown(e)
    tz -=speed*Math.sin(angleY*Math.PI/180.0);
    tx -=speed*Math.cos(angleY*Math.PI/180.0);
  }
+ if(e.keyCode == 90){
+  angleXjo-= speed*1;
+  angleZjo+= speed*1;
+ }
+ if(e.keyCode== 88){
+  angleXjo+= speed*1;
+  angleZjo-= speed*1;
+ }
+ 
  //alert(e.keyCode);
  //alert(angleX);
  
@@ -1694,7 +1704,7 @@ function handlekeydown(e)
 </script>
 </head>
 <body onload="startGL()" onkeydown="handlekeydown(event)">
-<canvas id="canvas3D" width="1000" height="700" style="border: solid black 1px"></canvas>
+<canvas id="canvas3D" width="1440" height="900" style="border: solid black 1px"></canvas>
 
 </body>
 </html>
