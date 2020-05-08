@@ -507,7 +507,7 @@ gl_FragColor = clamp(texture2D(uSampler,vTexUV) * vec4(brightness,brightness,bri
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
   }
-  textureImg15.src="tlo.jpg"; //Nazwa obrazka
+  textureImg15.src="tloo.jpg"; //Nazwa obrazka
   
   
   //Macierze opisujące położenie wirtualnej kamery w przestrzenie 3D
@@ -1432,6 +1432,7 @@ let uMVRotZne = [
   0,ty,0,1
   ];
 
+  
    angleYs+=0.1;
 
    angleYm+=6.0;
@@ -1786,13 +1787,6 @@ function handlekeydown(e)
  //alert(e.keyCode);
  //alert(angleX);
  
- //U I O J K L
- if(e.keyCode==76) lightX=lightX+90.1;
- if(e.keyCode==74) lightX=lightX-90.1;
- if(e.keyCode==73) lightY=lightY+90.1;
- if(e.keyCode==75) lightY=lightY-90.1;
- if(e.keyCode==85) lightZ=lightZ+90.1;
- if(e.keyCode==79) lightZ=lightZ-90.1;
 }
 </script>
 </head>
