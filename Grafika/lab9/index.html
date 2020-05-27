@@ -414,81 +414,12 @@ var LightPositionX = 0;
 var LightPositionY = 0;
 var LightPositionZ = 3;
 
-var move = 1.0;
-var state = 1;
-var speed=2;
+
 
 //rece
 function Tick()
 { 
-  if (tz < -20.0) {
-                tz += 1.5 * move;
 
-                if (state) {
-
-    Object2AngleX=Object2AngleX+Math.cos(Math.PI/180.0)*speed;
-    Object2AngleX=Object2AngleX+Math.sin(Math.PI/180.0)*speed;
-
-    Object3AngleX=Object3AngleX+Math.cos(Math.PI/180.0)*speed;
-    Object3AngleX=Object3AngleX+Math.sin(Math.PI/180.0)*speed;
-
-    Object4AngleX=Object4AngleX-Math.cos(Math.PI/180.0)*speed;
-    Object4AngleX=Object4AngleX-Math.sin(Math.PI/180.0)*speed;
-
-    Object5AngleX=Object5AngleX-Math.cos(Math.PI/180.0)*speed;
-    Object5AngleX=Object5AngleX-Math.sin(Math.PI/180.0)*speed;
-
-    Object7AngleX=Object7AngleX+Math.cos(Math.PI/180.0)*speed;
-    Object7AngleX=Object7AngleX+Math.sin(Math.PI/180.0)*speed;
-
-
-    Object8AngleX=Object8AngleX+Math.cos(Math.PI/180.0)*speed;
-    Object8AngleX=Object8AngleX+Math.sin(Math.PI/180.0)*speed;
-
-    Object9AngleX=Object9AngleX-Math.cos(Math.PI/180.0)*speed;
-    Object9AngleX=Object9AngleX-Math.sin(Math.PI/180.0)*speed;
-
-    Object10AngleX=Object10AngleX-Math.cos(Math.PI/180.0)*speed;
-    Object10AngleX=Object10AngleX-Math.sin(Math.PI/180.0)*speed;
-
-                
-
-                
-
-                  
-
-                    if (Object2AngleX== 152) state = 0;
-                }
-                else {
-
-                 
-                  Object2AngleX=Object2AngleX-Math.cos(Math.PI/180.0)*speed;
-    Object2AngleX=Object2AngleX-Math.sin(Math.PI/180.0)*speed;
-
-    Object3AngleX=Object3AngleX-Math.cos(Math.PI/180.0)*speed;
-    Object3AngleX=Object3AngleX-Math.sin(Math.PI/180.0)*speed;
-
-    Object4AngleX=Object4AngleX+Math.cos(Math.PI/180.0)*speed;
-    Object4AngleX=Object4AngleX+Math.sin(Math.PI/180.0)*speed;
-
-    Object5AngleX=Object5AngleX+Math.cos(Math.PI/180.0)*speed;
-    Object5AngleX=Object5AngleX+Math.sin(Math.PI/180.0)*speed;
-
-    Object7AngleX=Object7AngleX-Math.cos(Math.PI/180.0)*speed;
-    Object7AngleX=Object7AngleX-Math.sin(Math.PI/180.0)*speed;
-
-
-    Object8AngleX=Object8AngleX-Math.cos(Math.PI/180.0)*speed;
-    Object8AngleX=Object8AngleX-Math.sin(Math.PI/180.0)*speed;
-
-    Object9AngleX=Object9AngleX+Math.cos(Math.PI/180.0)*speed;
-    Object9AngleX=Object9AngleX+Math.sin(Math.PI/180.0)*speed;
-
-    Object10AngleX=Object10AngleX+Math.cos(Math.PI/180.0)*speed;
-    Object10AngleX=Object10AngleX+Math.sin(Math.PI/180.0)*speed;
-                    if (Object2AngleX== 212) state = 1;
-                }
-            }
 
 
   let uMMatrix0 = CreateIdentytyMatrix(); 
